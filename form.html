@@ -1,0 +1,154 @@
+PRACTICAL 2
+<html>
+<head>	
+	<title>form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<script>
+	function validatePersonalInfo (form) {
+//student name validation
+		re1=/^[a-zA-Z ]*$/;
+		re2=/^[0-9]+$/;
+		if(document.getElementById("name").value=="")
+		{
+			document.getElementById("5").innerHTML="Fill your name.";
+		}
+		else if(!re1.test(document.getElementById("name").value))
+		{
+			document.getElementById("5").innerHTML="Enter only Alphabets."
+		}
+		else
+		{
+			document.getElementById("5").innerHTML="";
+		}
+//roll no validation
+		if(document.getElementById("rollno").value=="")
+		{
+			document.getElementById("6").innerHTML="Fill your rollno.";
+		}
+		else if(!re2.test(document.getElementById("rollno").value))
+		{
+			document.getElementById("6").innerHTML="Enter only numbers."
+		}
+		else
+		{
+			document.getElementById("6").innerHTML="";
+		}
+//address validation
+		if(document.getElementById("address").value=="")
+		{
+			document.getElementById("7").innerHTML="Fill the Address.";
+		}
+		else
+		{
+			document.getElementById("7").innerHTML="";
+		
+		}
+	}
+
+	function validateContactInfo(form)
+	{
+//Mobille no validation	
+		re1 = /^[0-9]+$/;
+		if(document.getElementById("number").value=="")
+		{
+			document.getElementById("2").innerHTML="Fill mobile no.";
+			
+		}
+		else if(!re1.test(document.getElementById("number").value))
+		{
+			document.getElementById("2").innerHTML="Enter Valid no.";
+			
+		}
+		else if(document.getElementById("number").value.length!=10)
+		{
+			document.getElementById("2").innerHTML="Mobile no should be of 10 digits.";
+			
+		}
+		else
+		{
+			document.getElementById("2").innerHTML="";
+		}
+//Email Validation		
+		var x=document.getElementById("email").value.indexOf("@");
+		var y=document.getElementById("email").value.lastIndexOf(".");
+		
+		if(x<1||y<x+2||y+2>=document.getElementById("email").value.length)
+		{
+			document.getElementById("3").innerHTML="Invalid Email.";
+			
+		}
+		else
+		{
+			document.getElementById("3").innerHTML="";
+		}
+//Address Validation		
+		if(document.getElementById("para").value=="")
+		{
+			document.getElementById("4").innerHTML="Fill the Address.";
+		}
+		else
+		{
+			document.getElementById("4").innerHTML="";
+		
+		}
+}
+	</script>
+	<div class="section1">
+	<form>
+		<h3 style="font-family:verdana;">&nbsp;&nbsp;PERSONAL INFO</h3>
+		<label style="font-family:verdana;">&nbsp;&nbsp;Student name:</label>
+		<input type="text" placeholder="student name" id="name"><br><br>
+		<label style="font-family:verdana;">&nbsp;&nbsp;Gender:</label>
+		
+		<input type="radio" name="gender" value="Male">MALE</input>
+	    
+		
+				<input type="radio" name="gender" value="Female">FEMALE</input>
+		<br><br>
+
+		<label style="font-family:verdana;">&nbsp;&nbsp;Roll no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+		<input type="text" placeholder="roll no" id="rollno"><br><br>
+		<label style="font-family:verdana;">&nbsp;&nbsp;Branch:</label>
+		<select>
+			<option value="CSE">CSE</option>
+			<option value="IT">IT</option>
+			
+
+
+<option value="ECE">ECE</option>
+		</select><br><br>
+		<label style="font-family:verdana;">&nbsp;&nbsp;Address:</label>
+		<textarea style="resize:none" rows="4" cols="50" id="address" value=""></textarea><br><br>
+		&nbsp;<input type="button" value="Submit" onclick="validatePersonalInfo()">
+	</form>
+	</div>
+	<div class="section1">
+	<form>
+	<h3 style="font-family:verdana;">&nbsp;&nbsp;CONTACT INFO</h3>
+		<label style="font-family:verdana;">&nbsp;&nbsp;Mobile:</label>
+		<input type="text" id="number" placeholder="mobile"><br><br>
+		<label style="font-family:verdana;">&nbsp;&nbsp;Email:&nbsp;&nbsp;</label>
+		<input type="text" id="email" placeholder="email"><br><br>
+		<label style="font-family:verdana;">&nbsp;&nbsp;Postal Address:</label>
+		<textarea style="resize:none" id="para" rows="4" cols="50"></textarea>
+		<br><br>
+		&nbsp;<input type="button" value="Submit" onclick="validateContactInfo()"/>
+	</form>
+	</div>
+	<br>
+	<div class="section2">
+		<p style="font-family:verdana;"><strong>&nbsp;ERROR BOX:</strong></p>
+		<p style="font-family:verdana;" id="2"></p>
+		<p style="font-family:verdana;" id="3"></p>
+		<p style="font-family:verdana;" id="4"></p>
+	</div>
+	<div class="section3">	
+		<p style="font-family:verdana;"><strong>&nbsp;ERROR BOX:</strong></p>
+		<p style="font-family:verdana;" id="5"></p>
+		<p style="font-family:verdana;" id="6"></p>
+		<p style="font-family:verdana;" id="7"></p>
+	</div>
+</body>
+</html>
